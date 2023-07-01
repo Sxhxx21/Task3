@@ -1,0 +1,54 @@
+//Task : Create a Guess a number game in Java
+
+import java.util.Scanner;
+
+public class GuessingGame {
+
+    // Create the Function that implements number guessing game
+    public static void guessinggame() {
+        // Scanner Class
+        Scanner sc = new Scanner(System.in);
+
+        // Generate the numbers
+        int number = (int) (100 * Math.random() + 1);
+
+        // Specify the number of trials (K)
+        int K = 5;
+
+        int i, guess;
+
+        System.out.println("A number is chosen between 1 to 100." + "\nGuess the number with 5 trials.");
+
+        // Iterate over K Trials
+        for (i = 0; i < K; i++) {
+
+            System.out.println("Guess the number: ");
+
+            // Take input for guessing
+            guess = sc.nextInt();
+
+            // If the number is guessed correctly
+            if (number == guess) {
+                System.out.println("Congratulations!" + "\nYou have guessed the number correctly.");
+                break;
+            } else if (number > guess
+                    && i != K - 1) {
+                System.out.println("The number is greater than " + guess);
+            } else if (number < guess && i != K - 1) {
+                System.out.println("The number is less than " + guess);
+            }
+        }
+
+        if (i == K) {
+            System.out.println("You Ran out of trials.");
+            System.out.println("The number was " + number);
+        }
+    }
+
+    // Driver Code
+    public static void main(String arg[]) {
+
+        // Function Call
+        guessinggame();
+    }
+}
